@@ -1,0 +1,91 @@
+.dashboard {
+    background: white;
+    border-radius: .5rem;
+    box-shadow: 0px 3px 5px #505050;
+    display: grid;
+    padding: 1rem 2rem 2rem 2rem;
+    width: 45rem;
+
+    &__title {
+        color: hsl(66, 100%, 40%);
+        font-family: $dosis;
+        font-size: $font-size-xlarge;
+        font-weight: 500;
+        text-align: center;
+    }
+    &__input {
+        border: 2px solid #707070;
+        border-radius: .5rem;
+        font-size: $font-size-medium;
+        line-height: 3rem;
+        margin: 1rem auto;
+        padding: .4rem .75rem .5rem .75rem;
+        width: 60%;
+    }
+    &__button {
+        border: 2px solid #707070;
+        border-radius: .5rem;
+        font-size: $font-size-medium;
+        margin: 0 auto;
+        padding: .4rem .75rem .5rem .75rem;
+        transition: all .1s;
+        width: 60%;
+
+        &:hover {
+            background: hsl(66, 71%, 55%);
+            color: white;
+        }
+    }
+}
+
+.results {
+    border: 2px solid hsl(66, 71%, 55%);
+    border-radius: .5rem;
+    color: #404040;
+    font-family: $dosis;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+    padding: 3rem 1rem;
+    width: 90%;
+
+    &__title {
+        color: #404040;
+        margin: 0 0 1rem 0;
+        text-align: center;
+    }
+}
+
+.result {
+    background: linear-gradient(60deg, hsl(66, 71%, 55%), hsl(66, 71%, 65%));
+    border-radius: .5rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    width: 80%;
+}
+
+.loader {
+    animation: loader 1s linear none infinite;
+    border: none;
+    background: linear-gradient(hsl(66, 71%, 55%), white 15%);
+    border-radius: 50%;
+    margin: 2rem auto 0 auto;
+    position: relative;
+    text-align: center;
+    height: 5rem;
+    width: 5rem;
+
+    &:before {
+        background: white;
+        border-radius: 50%;
+        content: "";
+        position: absolute; top: .25rem; left: .25rem;
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+}
+
+@keyframes loader {
+    0% {transform: rotate(0deg)}
+    50% {transform: rotate(180deg)}
+    100% {transform: rotate(360deg)}
+}

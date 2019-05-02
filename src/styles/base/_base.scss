@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:focus {
+        box-shadow: 0px 0px 10px hsl(66, 71%, 55%);
+        outline: none;
+    }
+}
+
+html {
+    font-size: 71.428571%;
+}
+
+body {
+    font-size: 1.6rem;
+
+    background: linear-gradient(60deg, hsl(0, 0%, 98%) 60%, hsl(66, 71%, 55%) 60%);
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+button {
+    cursor: pointer;
+}
+button:disabled {
+    cursor: default;
+}
