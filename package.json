@@ -2,8 +2,10 @@
   "name": "react-template",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://reanewell.github.io/date-decider/",
   "main": "app.js",
   "scripts": {
+    "deploy": "gh-pages -d docs",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
@@ -22,6 +24,7 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-router-dom": "^5.0.0"

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import AppRouter from './routers/AppRouter';
+
 import { AppContext } from './context/AppContext';
 import './styles/styles.scss'; 
+import Dashboard from './components/Dashboard';
 
 const App = () => {
     const [ foodPlace, setFoodPlace ] = useState();
@@ -19,7 +20,7 @@ const App = () => {
                 setFunPlace
             }}
         >
-            <AppRouter />
+            <Dashboard />
         </AppContext.Provider>
     )
 }

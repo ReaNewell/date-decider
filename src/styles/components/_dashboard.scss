@@ -18,15 +18,23 @@
         border-radius: .5rem;
         font-size: $font-size-medium;
         line-height: 3rem;
-        margin: 1rem auto;
+        margin: .5rem auto;
         padding: .4rem .75rem .5rem .75rem;
+        transition: all .1s;
+        width: 60%;
+    }
+    &__label {
+        color: #808080;
+        display: block;
+        margin: auto;
         width: 60%;
     }
     &__button {
+        background: white;
         border: 2px solid #707070;
         border-radius: .5rem;
         font-size: $font-size-medium;
-        margin: 0 auto;
+        margin: 1.5rem auto 0 auto;
         padding: .4rem .75rem .5rem .75rem;
         transition: all .1s;
         width: 60%;
@@ -88,4 +96,30 @@
     0% {transform: rotate(0deg)}
     50% {transform: rotate(180deg)}
     100% {transform: rotate(360deg)}
+}
+
+@media (max-width: $tablet-breakpoint) {
+    .dashboard {
+        width: 90vw;
+
+        &__input {
+            width: 80%;
+        }
+        &__button {
+            width: 80%;
+    
+            &:hover {
+                background: hsl(66, 71%, 55%);
+                color: white;
+            }
+        }
+    }
+    .results {
+        margin: 2rem auto 0 auto;
+        padding: 1.5rem .5rem;
+        width: 95%;
+    }
+    .result {
+        width: 90%;
+    }
 }
