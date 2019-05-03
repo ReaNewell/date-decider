@@ -8,71 +8,23 @@ const Dashboard = () => {
     const [ loading, setLoading ] = useState(false);
     const [ restrauntCategories, setRestrauntCategories] = useState([]);
     const [ currentCategory, setCurrentCategory ] = useState();
+    const [ error, setError ] = useState("");
 
     const handleSearch = () => {
-        const apiKey = 'KZYGV11BIQWERRMTDE0EC1GU3POA2ZBGXEAD4U0RWTU1TBEK';
-        const secret = 'RXSHX4G25QD1WG1M3LLJ0ZDBXMLJ1LKX1KCL0LCQ3VCATHTZ';
-        const version = 20190501;
         if (location) {
             setLoading(true);
-            let restraunts;
-            let selectedRestraunt;
-            let entertainment;
-            let selectedEntertainment;
-            const categories = (selecedVenue) => {
-                let cats = [];
-                selecedVenue.categories.forEach(category => {
-                    cats.push(category.name);
-                })
-                return cats;
-            }
-
-            axios({
-                method: 'get',
-                url: `https://api.foursquare.com/v2/venues/search?client_id=${apiKey}&client_secret=${secret}&v=${version}`,
-                params: {
-                    near: location,
-                    radius: 20000,
-                    limit: 50,
-                    categoryId: currentCategory
-                }
-            }).then((res) => {
-                    restraunts = res.data.response.venues;
-                    selectedRestraunt = restraunts[Math.floor(Math.random()*restraunts.length)];
-
-                    axios({
-                        method: 'get',
-                        url: `https://api.foursquare.com/v2/venues/search?client_id=${apiKey}&client_secret=${secret}&v=${version}`,
-                        params: {
-                            near: location,
-                            radius: 20000,
-                            limit: 50,
-                            categoryId: '4d4b7104d754a06370d81259'
-                        }
-                    }).then(res => {
-                        entertainment = res.data.response.venues;
-                        selectedEntertainment = entertainment[Math.floor(Math.random()*entertainment.length)];
-
-                        // Set data for both venues.
-                        setFoodPlace({
-                            name: selectedRestraunt.name,
-                            location: `${selectedRestraunt.location.address}, ${selectedRestraunt.location.city}`,
-                            category: categories(selectedRestraunt)
-                        })
-                        setFunPlace({
-                            name: selectedEntertainment.name,
-                            location: `${selectedEntertainment.location.address}, ${selectedEntertainment.location.city}`,
-                            category: categories(selectedEntertainment)
-                        })
-
-                        setLoading(false);
-                    })
-            });
+            axios.post('/api/randomDate', {
+                location,
+                currentCategory
+            }).then(res => {
+                setFoodPlace(res.foodPlace);
+                setFunPlace(res.funPlace);
+                setLoading(false);
+                setError(false);
+            })
+        } else {
+            setError("You need to input a location.")
         }
-    }
-
-    const handleSelectChange = () => {
-        
     }
 
     useEffect(() => {
@@ -93,6 +45,7 @@ const Dashboard = () => {
 
     return (
         <form className='dashboard' onSubmit={(event) => {event.preventDefault(); handleSearch()}}>
+            {/* // INPUTS */}
             <h1 className='dashboard__title'>Randm Date</h1>
             <input className='dashboard__input' onChange={(e) => setLocation(e.target.value) } placeholder='City'/>
             <label className='dashboard__label' >Restraunt Preference</label>
@@ -102,8 +55,14 @@ const Dashboard = () => {
                     <option key={index} value={category.id}>{category.name}</option>
                 ))}
             </select>
+
+            { error && <p className='dashboard__error'>{error}</p> }
+
             <input className='dashboard__button' type='submit' value='Make my decision.'/>
+
             { loading && <div className='loader'/> }
+
+            {/* // RESULTS */}
             { 
                 !loading && foodPlace && 
                 <div className='results'>

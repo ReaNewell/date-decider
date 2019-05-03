@@ -44,6 +44,12 @@
             color: white;
         }
     }
+    &__error {
+        color: hsl(66, 71%, 35%);
+        margin: .5rem auto;
+        text-align: center;
+        width: 80%;
+    }
 }
 
 .results {

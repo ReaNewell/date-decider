@@ -32,6 +32,6 @@ module.exports = () => {
             contentBase: path.join(__dirname, 'docs'),
             historyApiFallback: true,
             publicPath: '/dist/'
-        }  
+        }
     }
 };

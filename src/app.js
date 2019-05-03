@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-
 import { AppContext } from './context/AppContext';
 import './styles/styles.scss'; 
 import Dashboard from './components/Dashboard';
