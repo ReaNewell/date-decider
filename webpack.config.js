@@ -25,11 +25,11 @@ module.exports = () => {
             })
         ],
         output: {
-            path: path.join(__dirname, 'docs', 'dist'),
+            path: path.join(__dirname, 'public', 'dist'),
             filename: 'bundle.js'
         },
         devServer: {
-            contentBase: path.join(__dirname, 'docs'),
+            contentBase: path.join(__dirname, 'public'),
             historyApiFallback: true,
             publicPath: '/dist/'
         }
