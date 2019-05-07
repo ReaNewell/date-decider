@@ -5,7 +5,6 @@
   "homepage": "https://reanewell.github.io/date-decider/",
   "main": "app.js",
   "scripts": {
-    "deploy": "gh-pages -d docs",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",

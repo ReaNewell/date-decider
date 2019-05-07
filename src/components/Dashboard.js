@@ -42,17 +42,15 @@ const Dashboard = () => {
             { loading && <div className='loader'/> }
 
             {/* // RESULTS */}
-            { 
+            {
                 !loading && foodPlace && 
                 <div className='results'>
                     <div className='result'>
-                        <h2 className='result__title'>Get some food at...</h2>
                         <p className='result__name'>{foodPlace.name}</p>
                         <p className='result__body'>{foodPlace.location}</p>
                         <p className='result__body'>{foodPlace.category}</p>
                     </div>
                     <div className='result'>
-                        <h2 className='result__title'>Have some fun at...</h2>
                         <p className='result__name'>{funPlace.name}</p>
                         <p className='result__body'>{funPlace.location}</p>
                         <p className='result__body'>{funPlace.category}</p>
